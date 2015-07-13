@@ -40,19 +40,72 @@ The second diagonal of the matrix is:
 Sum across the second diagonal = 4+5+10 = 19
 Difference: |4-19| =15
 */
-function printMatrix(array $matrix)
+$n = 3;
+$mat = "
+11 2 4
+4 5 6
+10 8 -12
+";
+
+$arr = [3, [11, 2, 4], [4, 5, 6], [10, 8, -12]];
+
+
+/*while(!feof($fp)){
+    $string[] = fgets($fp);
+    foreach($string as $s){
+        $a = array_map('intval', explode(' ',$s));
+    }
+    $arr[] = $a;
+}
+
+$arr=
+array(3) {
+  [0]=>
+  array(3) {
+    [0]=>
+    int(11)
+    [1]=>
+    int(2)
+    [2]=>
+    int(4)
+  }
+  [1]=>
+  array(3) {
+    [0]=>
+    int(4)
+    [1]=>
+    int(5)
+    [2]=>
+    int(6)
+  }
+  [2]=>
+  array(3) {
+    [0]=>
+    int(10)
+    [1]=>
+    int(8)
+    [2]=>
+    int(-12)
+  }
+}
+
+*/
+
+
+function printMatrix($n,$matrix)
 {
     $sum1 = 0;
     $sum2 = 0;
-    if ($matrix[0] >= 1 && $matrix[0] <= 100) {
-        for ($i = 0; $i < $matrix[0] + 1; $i++) {
-            for ($j = 0; $j < 1; $j++) {
 
+    if ($n >= 1 && $n <= 100) {
+        for ($i = 0; $i < $n + 1; $i++) {
+            for ($j = 0; $j < 1; $j++) {
                 $sum1 += $matrix[$i][$i - 1];
             }
             for ($j = 0; $j < 1; $j++) {
-                $sum2 += $matrix[$i][$matrix[0] - $i];
+                $sum2 += $matrix[$i][$n - $i];
             }
+            echo $sum1;
         }
     }
 
@@ -63,5 +116,5 @@ function printMatrix(array $matrix)
     return false;
 }
 
-echo printMatrix([3, [11, 2, 4], [4, 5, 6], [10, 8, -12]]);
+echo printMatrix($n,$mat);
 echo PHP_EOL;
