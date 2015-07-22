@@ -10,35 +10,53 @@ values, the resulting sum might exceed this range. You might need to use long lo
 Java to store such sums.
  * */
 
-$arr = [1000000001, 1000000002, 1000000003, 1000000004, 1000000005];
+$x = [  1000000001,
+        1000000002,
+        1000000003,
+        1000000004,
+        1000000005];
 
-//echo $a = dechex(1000000001);
-//echo '+';
-//echo $b = dechex(1000000005);
-//echo '=';
-//echo hexdec($a+$b);
-//carry = 0
-//for i = 31 to 0
-//sum[i] = a[i] ^ b[i] ^ carry
-//  carry = (a[i] & b[i]) | (a[i] & carry) | (b[i] & carry)
-//next i
+//echo array_sum(bcmod($x));
+//$sum = 0;
+/*foreach ($x as $k => $v ) {
+    //bcadd($x[$k] + $x[$k+1]);
 
-function bit($arr){
-    foreach ($arr as $a) {
-        $bArray[] = decbin($a) . "\n";
+    for ($i = 0; $i < count($x); $i++) {
+
     }
 
-    $arInt = array_map('binary',$bArray);
-    var_dump($arInt);
+    if($v==isset($x[$k+1])){
+        //$sum[] = gmp_add($x[$k], $x[$k+1]);
+    }
+
+}*/
+
+//----------------
+//$continents = array("America", "Africa", "Europe", "Asia", "Antarctica");
+//
+//$item1 = current($continents);
+//$item2 = next($continents);
+//$item3 = next($continents);
+//$item4 = end($continents);
+//$item5 = prev($continents);
+//
+//echo "$item1, $item2, $item3, $item4, $item5\n";
+//
+//reset($continents);
+//
+while(list($idx, $val) = each($x)) {
+    //echo "Index: $idx, Value: $val\n";
+
+    if($x[$idx+1] == $x[$idx]){
+        var_dump($x[$idx+1]);
+    }
+
 }
+//----------------------
 
 
 
-echo bit($arr);
-
-
-
-
+//echo gmp_strval($sum) . "\n";
 
 
 

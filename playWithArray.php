@@ -19,7 +19,20 @@ $func = function ($x) {
 
 
 
+//Convert string to int really quick!
+var_dump(+'1');
 
+
+//Array reduce Generate table
+function reduceToTable($html, $p) {
+    $html .= "<TR><TD><a href=\"$p.html\">$p</a></td></tr>\n";
+    return $html;
+}
+
+$list = Array("page1", "page2", "page3");
+
+$tab = array_reduce($list, "reduceToTable");
+echo "<table>".$tab . "</table>\n";
 
 
 
