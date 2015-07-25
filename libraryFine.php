@@ -1,32 +1,32 @@
 <?php
 date_default_timezone_set('UTC');
 
-$data = ['6 3 2015','9 3 2015'];
+//$data = ['2 7 1014','1 1 1015'];
+$data = ['9 3 2015','6 3 2015'];
 
 function calculate(array $data)
 {
 
     $datetime1 = date_create(date('m/d/Y', strtotime(str_replace(' ','-',$data[1]))));
     $datetime2 = date_create(date('m/d/Y', strtotime(str_replace(' ','-',$data[0]))));
-    $days = $datetime2->format('d') - $datetime1->format('d');
-    $month = $datetime2->format('m') - $datetime1->format('m');
-    $year = $datetime2->format('y') - $datetime1->format('y');
+    echo $days = $datetime2->format('d') - $datetime1->format('d') . " \n";
+    echo $month = $datetime2->format('m') - $datetime1->format('m') . " \n";
+    echo $year = $datetime2->format('y') - $datetime1->format('y') . " \n";
+    echo "----";
     $fine=0;
 
 
-    if(!empty($year) && $year > 0){
-        $fine=$year*10000;
-    }
-    else{
-        if(!empty($month) && $month > 0){
-            $fine=$month*500;
-        }else{
-            if(!empty($days) && $days > 0){
-                $fine=$days*15;
-            }
+    if($year > 0){ return $fine=$year*10000; }
+    elseif($year < 0){ return $fine=0; }
+    elseif($year == 0){
+        if($month > 0){ return $fine=$month*500; }
+        elseif($month < 0){ return $fine=0; }
+        elseif($month == 0){
+            if($days > 0){ return $fine=$days*15; }
+            elseif($days <= 0){ return $fine=0; }
         }
-    }
 
+    }
 
     return $fine;
 }
