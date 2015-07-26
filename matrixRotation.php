@@ -9,44 +9,42 @@
  * you have to shift elements by one step only (refer sample tests for more clarity).
  */
 
-function matrix(array $arr,$row,$col,$r){
+function matrix(array $arr){
 
-    for ($c = 0; $c < $col; $c++) {
-        for ($r = 0; $r < $row; $r++) {
-            if($row - $c == $r){
-                echo "----- \n";
-            }
-            echo $arr[$row - $c][$r]. ' ';
+    $n = count($arr);
+    for ($i = 0; $i < $n/2; $i++) {
+        for ($j = 0; $j < $n -$i - 1; $j++) {
+            $tmp =$arr[$i][$j];
+            $tmp .= $arr[$i][$j]=$arr[$j][$n-$i-1];
+            $tmp .= $arr[$j][$n-$i-1]=$arr[$n-$i-1][$n-$j-1];
+            $tmp .= $arr[$n-$i-1][$n-$j-1]=$arr[$n-$j-1][$i];
+            $tmp .= $arr[$n-$j-1][$i];
         }
-    }
 
+
+
+    }
+    print_r($tmp);
 }
 
+//private function rotateCounterClockwise(a:Array):void {
+//    var n:int=a.length;
+//    for (var i:int=0; i<n/2; i++) {
+//        for (var j:int=i; j<n-i-1; j++) {
+//            var tmp:String=a[i][j];
+//					a[i][j]=a[j][n-i-1];
+//					a[j][n-i-1]=a[n-i-1][n-j-1];
+//					a[n-i-1][n-j-1]=a[n-j-1][i];
+//					a[n-j-1][i]=tmp;
+//		  }
+//		}
+//}
 $arr=[  '4 4 1 ',
         '1 2 3 4 ',
         '5 6 7 8 ',
         '9 10 11 12 ',
         '13 14 15 16'
       ];
-foreach ($arr as $a) { $array[] = array_map('intval',explode(' ', $a)); }
-
-
-//var_dump($array[0][2]);
-//echo matrix($array,$array[0][0],$array[0][1],$array[0][2]);
-
-
-//$a = array(array(1,2,3,4),array(5,6,7,8),array(9,0,1,2),array(3,4,5,6));
-$a = [  ['1', '2', '3', '4'],['5', '6', '7', '8'],['9', '10', '11', '12'],['13', '14', '15', '16']];
-$b = array(); //result
-
-/*while(count($a)>0)
-{
-
-    if (count($a[0])==0)
-    {
-        $ar = array_shift($a);
-    }
-}*/
-$b = call_user_func_array('array_map',array(-1 => null) + array_reverse($a));
-var_dump($b);
+foreach ($arr as $k => $a) { ($k > 0) ? $array[] =  array_map('intval',array_filter(explode(' ',$a),'trim')): false ; }
+echo matrix($array);
 echo PHP_EOL;
