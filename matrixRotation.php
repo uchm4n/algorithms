@@ -14,11 +14,7 @@ function matrix(array $arr){
     $n = count($arr);
     for ($i = 0; $i < $n/2; $i++) {
         for ($j = 0; $j < $n -$i - 1; $j++) {
-            $tmp =$arr[$i][$j];
-            $tmp .= $arr[$i][$j]=$arr[$j][$n-$i-1];
-            $tmp .= $arr[$j][$n-$i-1]=$arr[$n-$i-1][$n-$j-1];
-            $tmp .= $arr[$n-$i-1][$n-$j-1]=$arr[$n-$j-1][$i];
-            $tmp .= $arr[$n-$j-1][$i];
+            $tmp[] =$arr[$i][$j-$i];
         }
 
 
@@ -27,18 +23,6 @@ function matrix(array $arr){
     print_r($tmp);
 }
 
-//private function rotateCounterClockwise(a:Array):void {
-//    var n:int=a.length;
-//    for (var i:int=0; i<n/2; i++) {
-//        for (var j:int=i; j<n-i-1; j++) {
-//            var tmp:String=a[i][j];
-//					a[i][j]=a[j][n-i-1];
-//					a[j][n-i-1]=a[n-i-1][n-j-1];
-//					a[n-i-1][n-j-1]=a[n-j-1][i];
-//					a[n-j-1][i]=tmp;
-//		  }
-//		}
-//}
 $arr=[  '4 4 1 ',
         '1 2 3 4 ',
         '5 6 7 8 ',

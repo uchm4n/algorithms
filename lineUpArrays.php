@@ -35,10 +35,3 @@ function lineUp($array){
 echo lineUp($array);
 //Biggest number in those array's
 echo PHP_EOL;
-
-
-
-
-
-
-
