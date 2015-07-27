@@ -66,25 +66,45 @@ function problem($arr)
     $testCase = [];
     $arival = [];
     $count = count($array);
-
+    $result = [];
     foreach ($array as $k => $v) {
         if((-1+$k %2)  == 0 ){ $testCase[] = $v; }
         if(($k %2)  == 0 ){ $arival[] = $v; }
     }
+    //Reformat Arival array
+    $arival = array_slice($arival,1);
 
 
     foreach($testCase as $case =>  $test){
         $N = $test[0];
         $K = $test[1];
 
+        $studentArivalCount = count($arival[$case]);
 
-        foreach($arival[$case+1] as $kv => $val){
-            if($case == 0){
-                print_r(max($val,$N));
+        var_dump(count($arival[$case]));
+
+
+        /*foreach ($arival as $arK => $arV) {
+
+            if($arK == 0){
+                print_r($arV);
+
+//                echo ($arCase);
             }
+            //echo $arCase;
+        }*/
 
+        //print_r();
+
+        if($studentArivalCount < $K ){
+
+            //echo $N;
+            //echo "Yes cancelled";
+        }else{
+            //echo "No";
         }
-//        print_r();
+
+
     }
 
 
