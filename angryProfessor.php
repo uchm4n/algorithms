@@ -49,66 +49,35 @@ $arr= [
     '5',
     '4 3 ',
         '-1 -3 4 2 ',
-    '4 6 ',
-        '10 -1 2 1 ',
-    '4 12 ',
-        '0 -1 2 1 ',
-    '4 8 ',
-        '02 -1 2 1 ',
-    '45 18 ',
-        '5 -1 2 1 '
+    '4 2 ',
+        '0 -1 -2 1 12',
 ];
 
 function problem($arr)
 {
-    foreach ($arr as $key => $value){ $array[] = array_values(array_map('intval',array_filter(explode(' ',$value),'trim')));}
-    $T = $array[0][0];
+    foreach ($arr as $key => $value){ $array[] = array_values(array_map('intval',array_filter(explode(' ',$value),function ($var){ return ($var !== NULL && $var !== FALSE && $var !== ''); })));}
     $testCase = [];
     $arival = [];
-    $count = count($array);
-    $result = [];
     foreach ($array as $k => $v) {
         if((-1+$k %2)  == 0 ){ $testCase[] = $v; }
         if(($k %2)  == 0 ){ $arival[] = $v; }
     }
-    //Reformat Arival array
     $arival = array_slice($arival,1);
-
-
     foreach($testCase as $case =>  $test){
         $N = $test[0];
         $K = $test[1];
+        $arivalCount = count($arival[$case]);
+        $positive[] = (array_filter($arival[$case], function ($x) { if($x > 0){ return true; } return false; }));
+        $negative = $arivalCount - count($positive[$case]);
+        //var_dump($negative);
 
-        $studentArivalCount = count($arival[$case]);
-
-        var_dump(count($arival[$case]));
-
-
-        /*foreach ($arival as $arK => $arV) {
-
-            if($arK == 0){
-                print_r($arV);
-
-//                echo ($arCase);
-            }
-            //echo $arCase;
-        }*/
-
-        //print_r();
-
-        if($studentArivalCount < $K ){
-
-            //echo $N;
-            //echo "Yes cancelled";
+        // 3 < 2
+        if ($K > $negative) {
+            echo "YES \n";
         }else{
-            //echo "No";
+            echo "NO \n";
         }
-
-
     }
-
-
-    //print_r($arival);
 }
 
 echo problem($arr);
