@@ -52,7 +52,7 @@ class HomeController extends Controller
         			$out .= "<div class='white'>";
         		}
         		if ($placements[$i]==$j){
-        			$out .= "<img src=\"img/queen.png\"/>";
+        			$out .= "<img src=\"".asset('img/queen.png')."\"/>";
         		}else{
         			$out .= "&nbsp;";
         		}
