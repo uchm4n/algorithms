@@ -1,0 +1,35 @@
+/*# sourceMappingURL=app.css.map */
+
+table {
+	margin: 0 auto;
+	border-collapse: collapse;
+	background: black;
+}
+
+td {
+	width: 40px;
+	height: 40px;
+}
+
+tr:nth-child(odd) td:nth-child(even),
+tr:nth-child(even) td:nth-child(odd) {
+	background: white;
+}
+
+div {
+	float: left;
+}
+
+div.black {
+	background-color: #B58862;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+}
+
+div.white {
+	background-color: #F0D9B5;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+}
