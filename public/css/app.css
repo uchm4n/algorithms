@@ -16,7 +16,7 @@ tr:nth-child(even) td:nth-child(odd) {
 	background: white;
 }
 
-div {
+.chess div{
 	float: left;
 }
 
