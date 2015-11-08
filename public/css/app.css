@@ -1,4 +1,9 @@
 /*# sourceMappingURL=app.css.map */
+.container-fluid {
+    margin-bottom: 20px;
+}
+
+
 
 table {
 	margin: 0 auto;
@@ -16,19 +21,20 @@ tr:nth-child(even) td:nth-child(odd) {
 	background: white;
 }
 
+
 .chess div{
 	float: left;
 }
 
 div.black {
-	background-color: #B58862;
+	background-color: #7B838A;
 	width: 40px;
 	height: 40px;
 	text-align: center;
 }
 
 div.white {
-	background-color: #F0D9B5;
+	background-color: #FBF5EC;
 	width: 40px;
 	height: 40px;
 	text-align: center;
