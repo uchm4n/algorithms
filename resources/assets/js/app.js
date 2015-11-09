@@ -1,29 +1,9 @@
-var Vue = require('vue');
+import Alert from './components/Alert.vue';
 
-new Vue({
-    el:'#container',
+export default {
     
-    data:{
-        message:'',
-        task_input:''
-    },
-    
-    methods: {
-        addTask: function(e) {
-            e.preventDefault();
-            
-            this.message = this.task_input;
-            this.task_input = '';
-        },
-        
-        remove:function(e){
-            this.message = '';
-        }
-        
+    components: {
+        'alert': Alert
     }
     
-    
-});
-
-
-
+}
