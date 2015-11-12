@@ -16,6 +16,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solved Algorithms <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a href="{{url('/queen/9')}}">N-Qeen</a></li>
+          <li><a href="{{url('/n2w')}}">Numbers To Words</a></li>
           <li><a href="#"></a></li>
           <li role="separator" class="divider"></li>
           <li class="dropdown-header"><strong>TODO:</strong></li>

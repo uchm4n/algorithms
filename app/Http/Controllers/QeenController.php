@@ -55,7 +55,7 @@ class QeenController extends Controller
         }
         
         
-        return view('nQueen/index',['number' => (int)$number,'out' => $out]);
+        return view('alg/nQueen',['number' => (int)$number,'out' => $out]);
     }
     
     /* როდესაც დედოფლები ერთმანეთს ემუქრებიან დაფაზე*/
