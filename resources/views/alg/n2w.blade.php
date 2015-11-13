@@ -13,7 +13,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 		    
-		    <form class="form-inline" action="{{ url('/n2w/convert') }}" method="POST">
+		    <form id="convertForm" class="form-inline" action="{{ url('/n2w/convert') }}" method="POST">
 		        {{csrf_field()}}
               <div class="form-group">
                 <label class="sr-only" for="exampleInputAmount">Enter Number</label>
@@ -23,44 +23,41 @@
                   
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary">Convert</button>
+              <button id="convertButton" type="submit" class="btn btn-primary">Convert</button>
             </form>
             
             <div><strong>Number in Words:</strong>
-                @if(!empty($string)) 
-                    <blockquote>
-                      <p>{{$string}}</p>
-                    </blockquote>
-                    
-                @endif
+                <blockquote>
+                    <p id="result"></p>
+                </blockquote>
             </div>
 		</div>
 	</div>
-	<script type="text/javascript">
+	
+@endsection
 
-        $( document ).ready(function(e) {
-            e.preventDefault(); 
-            alert('dsfs');
-            $("#convertButton").submit(function(e) {
-                alert('sdf');
-                var url = "/n2w/convert"; 
-            
+@section('scripts')
+<script type="text/javascript">
+
+        $(document).ready(function() {
+            var $form = $('#convertForm');
+
+            $form.submit(function(e) {
+                e.preventDefault();
+                var url = "/n2w/convert";
+
                 $.ajax({
-                       type: "POST",
-                       url: url,
-                       data: $("#convertForm").serialize(), 
-                       success: function(data)
-                       {
-                           alert(data); 
-                           $( "#result" ).empty().append( data );
-                       }
-                     });
-            
-                
+                    type: "POST",
+                    url: url,
+                    data: $form.serialize(),
+                    success: function(data) {
+                        console.log(data);
+                        $("#result").empty().append(data);
+                    }
+                });
+
             });
         });
         
-        
-	</script>
-	
+</script>
 @endsection
