@@ -17,6 +17,7 @@
         <ul class="dropdown-menu">
           <li><a href="{{url('/queen/9')}}">N-Qeen</a></li>
           <li><a href="{{url('/n2w')}}">Numbers To Words</a></li>
+          <li><a href="{{url('/arrayRotation')}}">Array Rotation</a></li>
           <li><a href="#"></a></li>
           <li role="separator" class="divider"></li>
           <li class="dropdown-header"><strong>TODO:</strong></li>

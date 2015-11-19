@@ -21,7 +21,43 @@ class N2WController extends Controller
         if($number == NULL){
             $number = \Request::input('number');
         }
-        
+                /*$dictionary  = [
+            0                   => 'ნული',
+            1                   => 'ერთი',
+            2                   => 'ორი',
+            3                   => 'სამ',
+            4                   => 'ოთხი',
+            5                   => 'ხუთი',
+            6                   => 'ექვსი',
+            7                   => 'შვიდი',
+            8                   => 'რვა',
+            9                   => 'ცხრა',
+            10                  => 'ათი',
+            11                  => 'თერმეტი',
+            12                  => 'თორმეტი',
+            13                  => 'ცამეტი',
+            14                  => 'თოთხმეტი',
+            15                  => 'თხუთმეტი',
+            16                  => 'თექვსმეტი',
+            17                  => 'ჩვიდმეტი',
+            18                  => 'თვრამეტი',
+            19                  => 'ცხრამეტი',
+            20                  => 'ოცი',
+            30                  => 'ოცდაათი',
+            40                  => 'ორმოც',
+            50                  => 'ორმოცდაათი',
+            60                  => 'სამოცი',
+            70                  => 'სამოცდაათი',
+            80                  => 'ოთხმოცი',
+            90                  => 'ოთხმოცდაათი',
+            100                 => 'ას',
+            1000                => 'ათას',
+            1000000             => 'მილიონი',
+            1000000000          => 'ბილიონი',
+            1000000000000       => 'ტრილიონი',
+            1000000000000000    => 'კუადრილიონი',
+            1000000000000000000 => 'კვინტილიონი'
+        ];*/
         $dictionary  = [
             0                   => 'zero',
             1                   => 'one',
@@ -67,7 +103,7 @@ class N2WController extends Controller
         $string = $fraction = null;
         
         if (!is_numeric($number)) {
-            return false;
+            return "Insert number !";
         }
         
         if (($number >= 0 && (int) $number < 0) || (int) $number < 0 - PHP_INT_MAX) {
@@ -95,6 +131,7 @@ class N2WController extends Controller
             case $number < 100:
                 $tens   = ((int) ($number / 10)) * 10;
                 $units  = $number % 10;
+                debug($units,$tens);
                 $string = $dictionary[$tens];
                 if ($units) {
                     $string .= $hyphen . $dictionary[$units];
