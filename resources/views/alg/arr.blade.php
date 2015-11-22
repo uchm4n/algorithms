@@ -13,7 +13,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 		    <p><h2>Input:</h2></p>
-		    <div class="row">{!!($arr)!!}</div>
+		    <div class="row">{!!($input)!!}</div>
 		</div>
 		
 		<div class="row">
